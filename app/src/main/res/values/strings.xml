@@ -1,0 +1,28 @@
+<resources>
+
+    <string name="app_name">Кредитный калькулятор для kaspi bank</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7797546153730865/2849248030</string>
+    <string name="action_about">О приложений…</string>
+    <string name="label_input_loan_sum">Введите сумму кредитования:</string>
+    <string name="hint_sum"><![CDATA[сумма >= 20 000]]></string>
+    <string name="label_input_term">Введите срок кредитования:</string>
+    <string name="label_checkbox_Lk">Посчитать как лучшему клиенту по пониженным ставкам</string>
+    <string name="button_calculate">Расчитать</string>
+    <string name="label_month">Месяц:</string>
+    <string name="label_balance">Остаток долга:</string>
+    <string name="label_interest">Начислено процента:</string>
+    <string name="label_payment">Ежемесячный платеж:</string>
+    <string name="hint_term"><![CDATA[срок >= 3 мес]]></string>
+    <string name="about_text">Автор: Багдат Бимаганбетов\n\n
+        Внимание! Приложение было создано на основе калькулятора,
+        которым пользуются менеджера-универсалы во время консультаций,
+        при любых отклонениях от суммы автор ответственности не несет!
+        Пользуетесь данным приложением, Вы соглашаетесь с условем, описанным выше\n\n
+        Данное приложение было создано в учебных целях.
+        Выражаю благодарность <a href="https://www.youtube.com/user/b0noi">Вячеславу Коволевскому</a>,
+        за видеолекций по программированию на Java.\n
+        Исходный код данного прилодения доступен в ГитХабе:\n www.github.com/bbb1991
+    </string>
+    <string name="OK">OK</string>
+
+</resources>

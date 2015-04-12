@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kz.bbb1991.loancalc" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+
+        <activity
+            android:name="kz.bbb1991.loancalc.MainActivity"
+            android:label="Калькулятор для kaspi bank" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="kz.bbb1991.loancalc.ResultTest"
+            android:label="Results">
+        </activity>
+
+        <activity android:name="kz.bbb1991.loancalc.ShortInfo"
+            android:label="Short Info">
+        </activity>
+
+        <activity android:name="kz.bbb1991.loancalc.MoreInfo"
+            android:label="More Info">
+        </activity>
+
+        <activity android:name="kz.bbb1991.loancalc.OtherTerms"
+            android:label="Other Terms">
+        </activity>
+
+
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+
+    </application>
+
+</manifest>
