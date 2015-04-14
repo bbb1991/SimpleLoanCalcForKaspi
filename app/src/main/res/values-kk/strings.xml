@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Кредитный калькулятор для kaspi bank</string>
+    <string name="action_about">Бағдарлама жайлы</string>
+    <string name="button_calculate">Есептеу</string>
+    <string name="label_month">Ай:</string>
+    <string name="label_payment">Ай сайынғы төлем:</string>
+    <string name="label_interest">Үстемесі:</string>
+    <string name="label_input_term">Несие уақытын енгізіңіз:</string>
+    <string name="label_input_loan_sum">Несие сомасын енгізіңіз:</string>
+    <string name="label_checkbox_Lk">Төмендетілген пайызбен есептеу</string>
+    <string name="hint_sum">Сома >= 20 000 тенге</string>
+    <string name="hint_term">Ай >= 3 ай</string>
+    <string name="label_balance">Қарыз қалдығы:</string>
+</resources>

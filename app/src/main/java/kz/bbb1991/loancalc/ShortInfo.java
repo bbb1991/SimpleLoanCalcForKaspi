@@ -9,15 +9,6 @@ import com.google.android.gms.ads.AdView;
 
 public class ShortInfo extends Activity {
 
-
-
-
-    private TextView infoTerm;
-    private TextView infoAmount;
-    private TextView infoPayment;
-    private TextView infoOverPayment;
-    private TextView infoTotal;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,22 +26,22 @@ public class ShortInfo extends Activity {
 
 
     private void showInfo() {
-        infoTerm = (TextView) findViewById(R.id.shortInfoTerm);
+        TextView infoTerm = (TextView) findViewById(R.id.shortInfoTerm);
         infoTerm.setText(Values.term + " мес.");
 
-        infoAmount = (TextView) findViewById(R.id.shortInfoAmount);
+        TextView infoAmount = (TextView) findViewById(R.id.shortInfoAmount);
         infoAmount.setText(Values.amount + " тенге.");
 
-        infoPayment = (TextView) findViewById(R.id.shortInfoPayment);
+        TextView infoPayment = (TextView) findViewById(R.id.shortInfoPayment);
         // Нужно приводить в String, иначе будет выброшено исключение
         // android.content.res.Resources$NotFoundException: String resource ID #0x2770
         infoPayment.setText(String.valueOf(Values.monthlyPayment) + " тенге.");
 
-        infoOverPayment = (TextView) findViewById(R.id.shortInfoOverpayment);
+        TextView infoOverPayment = (TextView) findViewById(R.id.shortInfoOverpayment);
         infoOverPayment.setText(String.valueOf(
                 Values.monthlyPayment * Values.term - Values.amount) + " тенге.");
 
-        infoTotal = (TextView) findViewById(R.id.shortInfoTotal);
+        TextView infoTotal = (TextView) findViewById(R.id.shortInfoTotal);
         infoTotal.setText(String.valueOf(Values.monthlyPayment * Values.term) + " тенге.");
     }
 }

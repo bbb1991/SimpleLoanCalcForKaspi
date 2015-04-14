@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdView;
 
-public class OtherTerms extends Activity {
+public class OtherTerms extends Activity implements Constants {
 
     private TableLayout terms, monthlyPayment, overpayment, total;
 
@@ -26,26 +26,26 @@ public class OtherTerms extends Activity {
         total = (TableLayout) findViewById(R.id.otherInfoTotal);
 
 
-        if (Values.amount <= Values.MAX_SUM_FOR_KN15) {
-            service = Values.SERVICE_FOR_KN15;
-            fillOtherInfo(Values.MIN_TERM_FOR_KN15, Values.MAX_TERM_FOR_KN15);
+        if (Values.amount <= MAX_SUM_FOR_KN15) {
+            service = SERVICE_FOR_KN15;
+            fillOtherInfo(MIN_TERM_FOR_KN15, MAX_TERM_FOR_KN15);
 
         } else {
-            service = Values.SERVICE_FOR_KN_6_24;
-            fillOtherInfo(Values.MIN_TERM_FOR_KN, Values.MAX_TERM_FOR_KN);
+            service = SERVICE_FOR_KN_6_24;
+            fillOtherInfo(MIN_TERM_FOR_KN, MAX_TERM_FOR_KN);
 
         }
     }
 
     private void fillOtherInfo(int i, int maxTerm) {
-        for (; i <= maxTerm; i += Values.STEP_FOR_TERM) {
+        for (; i <= maxTerm; i += STEP_FOR_TERM) {
 
 
             if (i == 27) {
-                service = Values.SERVICE_FOR_KN_27_48;
+                service = SERVICE_FOR_KN_27_48;
             } else if (i == 51) {
 
-                service = Values.SERVICE_FOR_KN_51_60;
+                service = SERVICE_FOR_KN_51_60;
             }
 
             // Ежемесячные платежи по разным срокам

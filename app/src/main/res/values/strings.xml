@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">Кредитный калькулятор для kaspi bank</string>
-    <string name="banner_ad_unit_id">ca-app-pub-7797546153730865/2849248030</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7797546153730865/2849248030</string>
     <string name="action_about">О приложений…</string>
     <string name="label_input_loan_sum">Введите сумму кредитования:</string>
     <string name="hint_sum"><![CDATA[сумма >= 20 000]]></string>
@@ -13,16 +13,16 @@
     <string name="label_interest">Начислено процента:</string>
     <string name="label_payment">Ежемесячный платеж:</string>
     <string name="hint_term"><![CDATA[срок >= 3 мес]]></string>
-    <string name="about_text">Автор: Багдат Бимаганбетов\n\n
+    <string name="about_text" translatable="false">Автор: Багдат Бимаганбетов\n\n
         Внимание! Приложение было создано на основе калькулятора,
         которым пользуются менеджера-универсалы во время консультаций,
         при любых отклонениях от суммы автор ответственности не несет!
-        Пользуетесь данным приложением, Вы соглашаетесь с условем, описанным выше\n\n
-        Данное приложение было создано в учебных целях.
-        Выражаю благодарность <a href="https://www.youtube.com/user/b0noi">Вячеславу Коволевскому</a>,
+        Пользуясь данным приложением, Вы соглашаетесь с условем, описанным выше\n\n
+
+        Выражаю благодарность Вячеславу Коволевскому,
         за видеолекций по программированию на Java.\n
-        Исходный код данного прилодения доступен в ГитХабе:\n www.github.com/bbb1991
+        Исходный код данного приложения доступен в ГитХабе
     </string>
-    <string name="OK">OK</string>
+    <string name="OK" translatable="false">OK</string>
 
 </resources>

@@ -1,27 +1,21 @@
 package kz.bbb1991.loancalc;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements Constants {
 
     private EditText amount;           // поле для ввода суммы кредитования
     private EditText term;          // поле для ввода суммы кредита
@@ -116,20 +110,20 @@ public class MainActivity extends ActionBarActivity {
                 return;
 
              // если введенная сумма меньше порога кредитования
-            } else if (Values.amount < Values.MIN_SUM_FOR_KN15) {
-                amount.setText(String.valueOf(Values.MIN_SUM_FOR_KN15));
+            } else if (Values.amount < MIN_SUM_FOR_KN15) {
+                amount.setText(String.valueOf(MIN_SUM_FOR_KN15));
                 throw new InvalidInput("Неверная сумма. Минимальная сумма кредитования: "
-                        + String.valueOf(Values.MIN_SUM_FOR_KN15) + " тенге."
+                        + String.valueOf(MIN_SUM_FOR_KN15) + " тенге."
                 );
             // если введенная сумма превышает порога кредитования
-            } else if (Values.amount > Values.MAX_SUM_FOR_KN) {
-                amount.setText(String.valueOf(Values.MAX_SUM_FOR_KN));
+            } else if (Values.amount > MAX_SUM_FOR_KN) {
+                amount.setText(String.valueOf(MAX_SUM_FOR_KN));
                 throw new InvalidInput("Неверная сумма. Максимальная сумма кредитования: "
-                        + String.valueOf(Values.MAX_SUM_FOR_KN) + " тенге."
+                        + String.valueOf(MAX_SUM_FOR_KN) + " тенге."
                 );
 
             // если все проверки прошли, по требованию банка, шаг суммы кредитования должна быть 10 000 тнг
-            } else if (Values.amount % Values.STEP_FOR_AMOUNT != 0) {
+            } else if (Values.amount % STEP_FOR_AMOUNT != 0) {
                 Toast.makeText(
                         this,
                         "Введенная сумма будет округлена до ближайшего значения в соответствий условиям банка",
@@ -137,10 +131,10 @@ public class MainActivity extends ActionBarActivity {
                         .show();
 
                 // округляем вниз
-                if (Values.amount % Values.STEP_FOR_AMOUNT < Values.STEP_FOR_AMOUNT/2) {
-                    Values.amount -= Values.amount % Values.STEP_FOR_AMOUNT;
+                if (Values.amount % STEP_FOR_AMOUNT < STEP_FOR_AMOUNT/2) {
+                    Values.amount -= Values.amount % STEP_FOR_AMOUNT;
                 } else { // округляем вверх
-                    Values.amount +=Values.STEP_FOR_AMOUNT - Values.amount % Values.STEP_FOR_AMOUNT;
+                    Values.amount += STEP_FOR_AMOUNT - Values.amount % STEP_FOR_AMOUNT;
                 }
             }
 
@@ -150,44 +144,44 @@ public class MainActivity extends ActionBarActivity {
             Values.term = Integer.parseInt(String.valueOf(term.getText()));
 
             // так как есть 2 типа кредитования и сроки там разные проверяем
-            if (Values.amount <= Values.MAX_SUM_FOR_KN15) { // если меньше или равно максимальной суммы экспресс кредита
+            if (Values.amount <= MAX_SUM_FOR_KN15) { // если меньше или равно максимальной суммы экспресс кредита
 
-                if (Values.term < Values.MIN_TERM_FOR_KN15) { // если введенный срок меньше чем 3 мес
-                    term.setText(String.valueOf(Values.MIN_TERM_FOR_KN15));
+                if (Values.term < MIN_TERM_FOR_KN15) { // если введенный срок меньше чем 3 мес
+                    term.setText(String.valueOf(MIN_TERM_FOR_KN15));
                     throw new InvalidInput("Неверный срок. Минимальный срок кредитования: "
-                            + Values.MIN_TERM_FOR_KN15 + " мес."
+                            + MIN_TERM_FOR_KN15 + " мес."
                     );
-                } else if (Values.term > Values.MAX_TERM_FOR_KN15) { // если введенный срок больше 24 мес
-                    term.setText(String.valueOf(Values.MAX_TERM_FOR_KN15));
+                } else if (Values.term > MAX_TERM_FOR_KN15) { // если введенный срок больше 24 мес
+                    term.setText(String.valueOf(MAX_TERM_FOR_KN15));
                     throw new InvalidInput("Неверный срок. Минимальный срок кредитования: "
-                            + Values.MAX_TERM_FOR_KN15 + " мес."
+                            + MAX_TERM_FOR_KN15 + " мес."
                     );
                 }
             } else {
-                if (Values.term < Values.MIN_TERM_FOR_KN) {
-                    term.setText(String.valueOf(Values.MIN_TERM_FOR_KN));
+                if (Values.term < MIN_TERM_FOR_KN) {
+                    term.setText(String.valueOf(MIN_TERM_FOR_KN));
                     throw new InvalidInput("Неверный срок. Минимальный срок кредитования: "
-                            + Values.MIN_TERM_FOR_KN + " мес."
+                            + MIN_TERM_FOR_KN + " мес."
                     );
-                } else if (Values.term > Values.MAX_TERM_FOR_KN) {
-                    term.setText(String.valueOf(Values.MAX_TERM_FOR_KN));
+                } else if (Values.term > MAX_TERM_FOR_KN) {
+                    term.setText(String.valueOf(MAX_TERM_FOR_KN));
                     throw new InvalidInput("Неверный срок. Минимальный срок кредитования: "
-                            + Values.MAX_TERM_FOR_KN + " мес."
+                            + MAX_TERM_FOR_KN + " мес."
                     );
                 }
             }
 
-            if (Values.term % Values.STEP_FOR_TERM != 0) {
+            if (Values.term % STEP_FOR_TERM != 0) {
                 Toast.makeText(
                         this,
                         "Введенный срок будет округлена до ближайшего значения в соответствий условиям банка",
                         Toast.LENGTH_LONG)
                         .show();
 
-                if (Values.term % Values.STEP_FOR_AMOUNT < 5) {
-                    Values.term -= Values.term % Values.STEP_FOR_TERM;
+                if (Values.term % STEP_FOR_AMOUNT < 5) {
+                    Values.term -= Values.term % STEP_FOR_TERM;
                 } else {
-                    Values.term +=Values.STEP_FOR_TERM - Values.term % Values.STEP_FOR_TERM;
+                    Values.term += STEP_FOR_TERM - Values.term %  STEP_FOR_TERM;
                 }
             }
 
